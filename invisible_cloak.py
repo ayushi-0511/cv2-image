@@ -40,6 +40,8 @@ while cap.isOpened():
             # cv2.imshow("mask", part2)
 
             cv2.imshow("cloak", part1 + part2)
+            kernel = np.ones((9,9),np.uint8)
+            gradient = cv2.morphologyEx(frame, cv2.MORPH_GRADIENT, kernel)
 
             if cv2.waitKey(5) == ord('q'):
                 break
